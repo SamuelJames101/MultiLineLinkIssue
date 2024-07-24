@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MultiLineLinkIssue.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            x:Name="myStack"
+            Padding="30,0"
+            Spacing="25">
+
+            <Button Text="Increase Font Size" Clicked="Button_Clicked"/>
+            <Button Text="Decrease Font Size" Clicked="Button_Clicked_1"/>
+
+            <Label Text="Span link wrapped (Top line not clickable, bottom line clickable)" />
+
+            <Label
+                x:Name="myLabel">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="I am the start of a span "/>
+                        <Span Text="https://en.wikipedia.org/wiki/Jimmy_John" TextColor="Blue" TextDecorations="Underline" >
+                            <Span.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                            </Span.GestureRecognizers>
+                        </Span>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+
+            <Label Text="Label link wrapped" />
+
+            <Label
+                Text="https://en.wikipedia.org/wiki/Joe_Biden#U.S._Senate_(1973%E2%80%932009)"
+                TextColor="Blue"
+                TextDecorations="Underline">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                </Label.GestureRecognizers>
+            </Label>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
+
